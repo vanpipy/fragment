@@ -26,4 +26,12 @@ Example URLs:
                                                                                      fragment   <---- Yes, fragment is fragment.
 
 # Why fragment?
+Fragment can be changed by `window.location.hash`.
 
+Fragment modification doesn't reload a page in browser but create History and never include the fragment idenifier into request messages.
+
+There is a pity that fragment will be ignored by googlebot but can be fixed from `#mystate` to `#!mystate`.
+
+The description about fragment above is the reason why fragment used as the basic of browser route.
+
+[fragment](https://blog.httpwatch.com/2011/03/01/6-things-you-should-know-about-fragment-urls)
