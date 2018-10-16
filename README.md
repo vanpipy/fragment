@@ -35,3 +35,17 @@ There is a pity that fragment will be ignored by googlebot but can be fixed from
 The description about fragment above is the reason why fragment used as the basic of browser route.
 
 [fragment](https://blog.httpwatch.com/2011/03/01/6-things-you-should-know-about-fragment-urls)
+
+# How to structure a Router?
+* Environment support
+    - Browser side: window.location.hash and do callback
+    - Server side: request URI matched and do callback
+* Structure of Router?
+    1. URI analysis (all start here)
+        - URI parse include encode or decode.
+        - Do configure.
+    2. environment callback function
+        - Dispatch event.
+
+[Page.js](https://github.com/visionmedia/page.js/blob/master/page.js)
+

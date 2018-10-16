@@ -1,0 +1,37 @@
+{
+  "name": "fragment",
+  "version": "0.0.1",
+  "description": "fragment hash router",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup --config rollup.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vanpipy/fragment.git"
+  },
+  "keywords": [
+    "hash",
+    "route",
+    "fragment"
+  ],
+  "author": "vanpipy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vanpipy/fragment/issues"
+  },
+  "homepage": "https://github.com/vanpipy/fragment#readme",
+  "dependencies": {
+    "promise": "file:../promise"
+  },
+  "devDependencies": {
+    "rollup": "^1.0.2",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-node-resolve": "^4.0.0"
+  }
+}
