@@ -1,15 +1,26 @@
 
-const promise = require('promise');
+//const promise = require('promise');
+const Router = require('./Router');
 
 function noop () {}
 
 function Fragment (options) {
-    const _options = Object.assign({
+    const env = this;
+
+    Object.assign(env, {
         root: '/',
+        hash: '#!',
         useHash: true,
+        platform: 'browser',
+        noop,
     }, options);
+
+    this.global = this.platform == 'browser' ? global : 0;
+    this.router = new Router(env);
 }
 
-new promise();
+Fragment.prototype.init = function () {
+    this.router.initialize();
+}
 
 module.exports = Fragment;

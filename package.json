@@ -3,11 +3,8 @@
   "version": "0.0.1",
   "description": "fragment hash router",
   "main": "index.js",
-  "directories": {
-    "example": "example"
-  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "build": "rollup --config rollup.config.js"
   },
   "repository": {
@@ -26,9 +23,11 @@
   },
   "homepage": "https://github.com/vanpipy/fragment#readme",
   "dependencies": {
-    "promise": "file:../promise"
+    "promise": "https://github.com/vanpipy/promise.git"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
     "rollup": "^1.0.2",
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-node-builtins": "^2.1.2",

@@ -3,7 +3,6 @@ Fragment is fragment of [URI](https://www.wikiwand.com/en/Uniform_Resource_Ident
 
 Example URLs:
 
-
     https://john.doe@www.example.com:123/forum/questions/?tag=networking&order=newest#top
       |                 |                       |                       |              |
       |                 |                       |                       |              |
@@ -46,6 +45,32 @@ The description about fragment above is the reason why fragment used as the basi
         - Do configure.
     2. environment callback function
         - Dispatch event.
+
+```
+    -------------------------
+    | Environment(Fragment) |
+    -------------------------
+    | root<String>          |
+    | hash<String>          |
+    | useHash<Boolean>      |                                   ------------------      ----------------
+    | router<Router> -------|---------------------------------> | Router         |  --> | Route        |
+    | listener<Listener> ---|--------                           ------------------  |   ----------------
+    | noop                  |       |      ---------------      | routes[Route] -|---   | name<String> |
+    -------------------------       -----> | Listener    |      | add()          |      | callback()   |
+                                           ---------------      | configure()    |      | ......       |
+                                           | listen()    |      | ......         |      ----------------
+                                           | ......      |      ------------------
+                                           ---------------
+
+    -----------------------------
+    | Listener                  |
+    -----------------------------
+    | Router                    |
+    -----------------------------
+    | Environment(Fragment)     |
+    -----------------------------
+
+```
 
 [Page.js](https://github.com/visionmedia/page.js/blob/master/page.js)
 
