@@ -2,9 +2,9 @@
 const Route = require('./Route');
 const Listener = require('./Listener');
 
-function Router ({ root, hash, platform, global }) {
+function Router ({ splitter, hash, platform, global }) {
     this.routes = [];
-    this.root = root;
+    this.splitter = splitter;
     this.hash = hash;
     this.platform = platform;
     this.global = global;
@@ -13,7 +13,7 @@ function Router ({ root, hash, platform, global }) {
 
 Router.prototype.initialize = function () {
     if (this.platform == 'browser') {
-        this.global.location.hash = `${this.hash}`
+        this.global.location.hash = `${this.hash}${this.splitter}`
     }
 
     this.configure();
@@ -25,15 +25,21 @@ Router.prototype.add = function (route = {}) {
 }
 
 Router.prototype.configure = function () {
+    const splitter = this.splitter;
+
     this.routes = this.routes.map(route => {
-        const _route = Route(route);
-        this.listener.add(_route.name, _route.callback);
+        const _route = new Route({ ...route, splitter });
+        this.listener.add(_route);
         return _route;
     });
 }
 
 Router.prototype.onChange = function () {
     this.listener.listen();
+}
+
+Router.prototype.routable = function () {
+    //TODO: for server side mappings.
 }
 
 module.exports = Router;

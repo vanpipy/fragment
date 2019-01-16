@@ -12,6 +12,7 @@ function Fragment (options) {
         hash: '#!',
         useHash: true,
         platform: 'browser',
+        splitter:  '/',
         noop,
     }, options);
 
